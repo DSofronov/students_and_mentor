@@ -39,8 +39,7 @@ class  Lecturer(Mentor):
         self.grades = {}
         self.courses_in_progress = []
     def average_grade(self):
-        for grade_list in self.grades.values():
-            average = sum(grade_list) / len(grade_list)
+        average = sum(sum(grade_list) / len(grade_list) for grade_list in self.grades.values())
         return average
     def __str__(self):
         return f"Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции: {self.average_grade():.2f}"
